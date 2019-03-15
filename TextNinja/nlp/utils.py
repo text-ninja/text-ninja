@@ -24,6 +24,8 @@ def preprocess_data(paragraph_list):
         low_freq_words = fetch_low_freq_words(paragraphs)
 
         for p in range(paragraphs.shape[0]):
+            if len(paragraphs[p]) == 0 or paragraphs[p] is None:
+                continue;
             paragraphs[p] = remove_special_chars(paragraphs[p])
 
         clean_text = rm_stopwords_stem_lowfreq(paragraphs, low_freq_words)
