@@ -40,11 +40,13 @@ def clone():
     data = json.loads(paraJson)
 
     ids = compute_similarity(data["paras"], data["index"])
-
-    # print(paraJson)
+    final = data["index"] + ids
+    final = list(dict.fromkeys(final))   
+    final.sort() 
     id_json = {}
-    id_json = ids
+    id_json = final
     val = json.dumps(id_json)
+    print(val)
     return val
 
 if __name__ == '__main__':
